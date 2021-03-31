@@ -159,10 +159,10 @@ func Render(expr expreduceapi.Ex) (chart.Chart, error) {
 		Width:  360,
 		Height: 220,
 		XAxis: chart.XAxis{
-			Style: chart.Shown(),
+			Style: chart.StyleShow(),
 		},
 		YAxis: chart.YAxis{
-			Style: chart.Shown(),
+			Style: chart.StyleShow(),
 		},
 	}
 
@@ -176,7 +176,6 @@ func Render(expr expreduceapi.Ex) (chart.Chart, error) {
 	}
 
 	style := chart.Style{
-		Hidden:      false,
 		StrokeColor: drawing.ColorBlack,
 	}
 	renderPrimitive(&graph, graphics.GetPart(1), &style)

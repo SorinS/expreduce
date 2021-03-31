@@ -1,0 +1,53 @@
+# github.com/blend/go-sdk v1.20210316.2
+## explicit
+# github.com/corywalker/mathbigext v0.0.0-20181030033443-6dc8c7f3bee3
+## explicit
+github.com/corywalker/mathbigext
+# github.com/davecgh/go-spew v1.1.1
+github.com/davecgh/go-spew/spew
+# github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0
+## explicit
+github.com/golang/freetype/raster
+github.com/golang/freetype/truetype
+# github.com/kavehmz/prime v0.0.0-20161101201751-789f3f913532
+## explicit
+github.com/kavehmz/prime
+# github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
+## explicit
+github.com/op/go-logging
+# github.com/orcaman/concurrent-map v0.0.0-20210106121528-16402b402231
+## explicit
+github.com/orcaman/concurrent-map
+# github.com/pmezard/go-difflib v1.0.0
+github.com/pmezard/go-difflib/difflib
+# github.com/stretchr/testify v1.7.0
+## explicit
+github.com/stretchr/testify/assert
+# github.com/wcharczuk/go-chart v2.0.1+incompatible
+## explicit
+github.com/wcharczuk/go-chart
+github.com/wcharczuk/go-chart/drawing
+github.com/wcharczuk/go-chart/matrix
+github.com/wcharczuk/go-chart/roboto
+github.com/wcharczuk/go-chart/seq
+github.com/wcharczuk/go-chart/util
+# golang.org/x/image v0.0.0-20210220032944-ac19c3e999fb
+## explicit
+golang.org/x/image/draw
+golang.org/x/image/font
+golang.org/x/image/math/f64
+golang.org/x/image/math/fixed
+# gopkg.in/readline.v1 v1.0.0-20160726135117-62c6fe619375
+## explicit
+gopkg.in/readline.v1
+# gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776
+gopkg.in/yaml.v3
+# modernc.org/golex v1.0.1
+## explicit
+modernc.org/golex/lex
+# modernc.org/strutil v1.1.1
+## explicit
+modernc.org/strutil
+# modernc.org/wl v1.0.0
+## explicit
+modernc.org/wl
