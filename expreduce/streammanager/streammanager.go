@@ -40,15 +40,19 @@ func (sm streamManagerImpl) fillMissingIndex(key *streamKey) {
 }
 
 // WriteString writes the toWrite string into the stream defined by streamName and streamIndex.
-func (sm streamManagerImpl) WriteString(streamName string, streamIndex int64, toWrite string) bool {
+func (sm streamManagerImpl) WriteString(
+	streamName string,
+	streamIndex int64,
+	toWrite string,
+) bool {
 	key := streamKey{id: streamIndex, name: streamName}
 	sm.fillMissingIndex(&key)
 	writer, hasWriter := sm.openStreams[key]
 	if !hasWriter {
 		return false
 	}
-	writer.Write([]byte(toWrite))
-	return true
+	_, err := writer.Write([]byte(toWrite))
+	return err == nil
 }
 
 func (sm streamManagerImpl) AsExpr() expreduceapi.Ex {

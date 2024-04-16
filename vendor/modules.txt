@@ -1,4 +1,6 @@
-# github.com/blend/go-sdk v1.20210316.2
+# github.com/blend/go-sdk v1.20220411.3
+## explicit
+# github.com/chzyer/test v1.0.0
 ## explicit
 # github.com/corywalker/mathbigext v0.0.0-20181030033443-6dc8c7f3bee3
 ## explicit
@@ -31,7 +33,7 @@ github.com/wcharczuk/go-chart/matrix
 github.com/wcharczuk/go-chart/roboto
 github.com/wcharczuk/go-chart/seq
 github.com/wcharczuk/go-chart/util
-# golang.org/x/image v0.0.0-20210220032944-ac19c3e999fb
+# golang.org/x/image v0.11.0
 ## explicit
 golang.org/x/image/draw
 golang.org/x/image/font
@@ -40,12 +42,13 @@ golang.org/x/image/math/fixed
 # gopkg.in/readline.v1 v1.0.0-20160726135117-62c6fe619375
 ## explicit
 gopkg.in/readline.v1
-# gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776
+# gopkg.in/yaml.v3 v3.0.1
+## explicit
 gopkg.in/yaml.v3
-# modernc.org/golex v1.0.1
+# modernc.org/golex v1.0.5
 ## explicit
 modernc.org/golex/lex
-# modernc.org/strutil v1.1.1
+# modernc.org/strutil v1.2.0
 ## explicit
 modernc.org/strutil
 # modernc.org/wl v1.0.0

@@ -634,7 +634,7 @@ ExpreduceFactorConstant[p_Plus] := Module[{e = p, cTerms, c},
 ExpreduceFactorConstant[e_] := e;
 Attributes[ExpreduceFactorConstant] = {Protected};
 
-Varibles::usage = "`Variables[expr]` returns the variables in `expr`.";
+Variables::usage = "`Variables[expr]` returns the variables in `expr`.";
 Variables[s_Symbol] := {s};
 Variables[s_^p_Integer] := Variables[s];
 Variables[s_^p_Rational] := Variables[s];
@@ -902,5 +902,14 @@ Tests`ComplexExpand = {
         ESameTest[(1/2 + I/2)/Sqrt[2], ComplexExpand[1/2 E^(\[ImaginaryJ]*\[Pi]/4)]],
     ], EKnownFailures[
         ESameTest[-2^(1/3)-I 2^(1/3) Sqrt[3], ComplexExpand[(-2)^(4/3)]],
+    ]
+};
+
+Exp::usage = "`Exp[x]` returns the exponential of `x`.";
+Attributes[Exp] = {Listable, NumericFunction, Protected, ReadProtected};
+Exp[x_] := E^x;
+Tests`Exp = {
+    ESimpleExamples[
+        ESameTest[Simplify[Exp[x] * Exp[y] == Exp[x + y]], True],
     ]
 };

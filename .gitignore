@@ -15,4 +15,8 @@ __debug_bin
 
 .idea/workspace.xml
 
+<<<<<<< HEAD
 expreduce.bin
+=======
+dist/
+>>>>>>> 190864c3b50eae6059ac2b3d7538471a3ae1d53f

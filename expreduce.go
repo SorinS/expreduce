@@ -19,12 +19,27 @@ import (
 )
 
 var debug = flag.Bool("debug", false, "Debug mode. No initial definitions.")
-var rawterm = flag.Bool("rawterm", false, "Do not use readline. Useful for pexpect integration.")
+
+var rawterm = flag.Bool(
+	"rawterm",
+	false,
+	"Do not use readline. Useful for pexpect integration.",
+)
 var cpuprofile = flag.String("cpuprofile", "", "write cpu profile to file")
-var netprofile = flag.Bool("netprofile", false, "Enable live profiling at http://localhost:8080/debug/pprof/")
+
+var netprofile = flag.Bool(
+	"netprofile",
+	false,
+	"Enable live profiling at http://localhost:8080/debug/pprof/",
+)
 var scriptfile = flag.String("script", "", "script `file` to read from")
 var initfile = flag.String("initfile", "", "A script to run on initialization.")
-var preloadRubi = flag.Bool("preloadrubi", false, "Preload the Rubi definitions for integral support on startup.")
+
+var preloadRubi = flag.Bool(
+	"preloadrubi",
+	false,
+	"Preload the Rubi definitions for integral support on startup.",
+)
 
 func main() {
 	flag.Parse()
@@ -34,10 +49,13 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		pprof.StartCPUProfile(f)
+		if err := pprof.StartCPUProfile(f); err != nil {
+			log.Fatal(err)
+		}
 		defer pprof.StopCPUProfile()
 	}
 	if *netprofile {
+		//nolint:errcheck
 		go http.ListenAndServe(":8080", nil)
 	}
 
@@ -45,7 +63,9 @@ func main() {
 
 	es := expreduce.NewEvalState()
 	if *preloadRubi {
-		fmt.Println("Pre-loading Rubi snapshot for integral support. Disable with -preloadrubi=false.")
+		fmt.Println(
+			"Pre-loading Rubi snapshot for integral support. Disable with -preloadrubi=false.",
+		)
 		es.Eval(atoms.E(atoms.S("LoadRubiBundledSnapshot")))
 		fmt.Println("Done loading Rubi snapshot.")
 		fmt.Print("\n")
@@ -63,7 +83,9 @@ func main() {
 		defer f.Close()
 
 		buf := new(bytes.Buffer)
-		buf.ReadFrom(f)
+		if _, err := buf.ReadFrom(f); err != nil {
+			log.Fatal(err)
+		}
 		scriptText := buf.String()
 		expreduce.EvalInterpMany(scriptText, *initfile, es)
 	}
@@ -76,7 +98,9 @@ func main() {
 		defer f.Close()
 
 		buf := new(bytes.Buffer)
-		buf.ReadFrom(f)
+		if _, err := buf.ReadFrom(f); err != nil {
+			log.Fatal(err)
+		}
 		scriptText := buf.String()
 		scriptSession(es, scriptText, *scriptfile)
 	} else {
@@ -129,7 +153,11 @@ func interactiveSession(es *expreduce.EvalState) {
 	}
 }
 
-func printFormattedOutput(es *expreduce.EvalState, res expreduceapi.Ex, promptNum int) {
+func printFormattedOutput(
+	es *expreduce.EvalState,
+	res expreduceapi.Ex,
+	promptNum int,
+) {
 	isNull := false
 	asSym, isSym := res.(*atoms.Symbol)
 	if isSym {
